@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Fetch evalF & Configure</mat-card-title>
+    <mat-card-subtitle>Proposal 1</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content style="padding: 14px;">
+
+
+    <section>
+      <button (click)="getLabels()" mat-raised-button color="primary">Fetch evalF</button>
+      <mat-chip-list style="display: inline-block; margin-left: 10px;">
+        <mat-chip *ngFor="let item of labels">{{item}}</mat-chip>
+      </mat-chip-list>
+    </section>
+
+    <form [formGroup]="dtConf" (ngSubmit)="submitForm()">
+      <mat-form-field style="width: 100%;">
+        <textarea matInput placeholder="copy from below" style="margin-top: 15px;" formControlName="conf"></textarea>
+      </mat-form-field>
+
+      <br>
+      <button color="warn" mat-raised-button>submit</button>
+    </form>
+    <h4 style="margin-top:20px" class="mat-display-2">RESULT: {{result}}</h4>
+
+
+    <h4 style="margin-top:20px" class="mat-display-1">Example: Assume the following tree to implement</h4>
+    <br>
+    <div style="overflow: hidden; width: 100%;">
+      <img height="300px" src="../../assets/dummy.png" alt="tree">
+    </div>
+
+    <h4 style="margin-top:20px" class="mat-display-1">The JSON configuration would be:</h4>
+    <section style="padding: 50px 50px;">
+      <pre>{{ jsonObject | json }}</pre>
+    </section>
+
+
+  </mat-card-content>
+</mat-card>
